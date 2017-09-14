@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+
+<beans>
+
+	<bean id="bonitaServiceImpl" class="es.trueta.documentacion_repo.bonita.BonitaServiceImpl">
+		<property name="bonitaHost" value="${bonita.host}"/>
+		<property name="bonitaPort" value="${bonita.port}"/>
+		<property name="user" value="${bonita.username}" />
+		<property name="password" value="${bonita.password}" />
+	</bean>
+	
+</beans>

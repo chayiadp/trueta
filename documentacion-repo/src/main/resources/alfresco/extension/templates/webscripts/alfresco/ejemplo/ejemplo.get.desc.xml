@@ -1,0 +1,7 @@
+<webscript>
+    <shortname>Ejemplo Webscript</shortname>
+    <description>Ejemplo Webscript</description>
+    <url>/ejemplo?param={param}</url>
+    <authentication>user</authentication>
+    <format default="json"></format>
+</webscript>

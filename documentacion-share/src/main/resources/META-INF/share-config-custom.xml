@@ -1,0 +1,66 @@
+<!-- Share configuration related to this particular Share module extension, such as:
+     - Doclib action config
+     - Form config
+     - Aspect and Type config
+     - Advanced Search
+
+    Note. Any configuration related to the whole Share.war webapp
+           (i.e. not specific to this share extension) should be
+            placed in the environment specific config file:
+             alfresco/tomcat/shared/classes/alfresco/web-extension/share-config-custom.xml
+     -->
+<alfresco-config>
+
+
+<!-- ====== ESPECIALICACION DE TIPOS Y ASPECTOS ====== -->
+
+	<config evaluator="string-compare" condition="DocumentLibrary"
+		replace="true">
+		<types>
+			<type name="cm:content">
+				<subtype name="truplan:plantilla" />
+			</type>
+			<type name="cm:folder">
+			</type>
+		</types>
+	</config>
+	
+<!-- ====== FORMULARIOS ====== -->	
+   
+   	<config evaluator="model-type" condition="truplan:plantilla">
+		<forms>
+			<form>
+				<field-visibility>
+
+					<show id="cm:name" />
+					<show id="cm:description" force="true" />
+
+					<show id="truplan:plantilla_tipo" />
+				</field-visibility>
+				<appearance>
+				</appearance>
+			</form>
+		</forms>
+	</config>
+	
+	<config evaluator="node-type" condition="truplan:plantilla">
+		<forms>
+			<form>
+				<field-visibility>
+
+					<show id="cm:name" />
+					<show id="cm:description" force="true" />
+
+					<show id="truplan:plantilla_tipo" />
+				</field-visibility>
+				<appearance>
+				</appearance>
+			</form>
+		</forms>
+	</config>
+   
+   
+   
+   
+
+</alfresco-config>

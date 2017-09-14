@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model name="truplan:plantillaModel" xmlns="http://www.alfresco.org/model/dictionary/1.0">
+
+	<author>IN2</author>
+	<version>1.0</version>
+
+	<imports>
+		<!-- Import Alfresco Dictionary Definitions -->
+		<import uri="http://www.alfresco.org/model/dictionary/1.0" prefix="d" />
+		<!-- Import Alfresco Content Domain Model Definitions -->
+		<import uri="http://www.alfresco.org/model/content/1.0" prefix="cm" />
+	</imports>
+
+	<!-- Custom namespace for your domain -->
+	<namespaces>
+		<namespace uri="trueta.plantilla.model" prefix="truplan" />
+	</namespaces>
+
+	
+	<types>
+		<type name="truplan:plantilla">
+			<title>Plantilla</title>
+			<parent>cm:content</parent>
+			<properties>
+				<property name="truplan:plantilla_tipo">
+					<title>tipo_de_documento</title>
+					<type>d:text</type>
+					<mandatory>true</mandatory>
+					<multiple>false</multiple>
+					<index enabled="true">
+						<atomic>true</atomic>
+						<stored>false</stored>
+						<tokenised>false</tokenised>
+					</index>
+				</property>
+			</properties>
+		</type>
+	</types>
+</model>

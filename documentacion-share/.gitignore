@@ -1,0 +1,9 @@
+*.classpath
+*.project
+*.log
+*.log.*
+/target
+/alf_data_dev
+/.settings
+/debug.*
+/run.*

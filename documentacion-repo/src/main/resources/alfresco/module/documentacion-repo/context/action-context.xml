@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+
+<beans>
+
+	<bean id="iniciar-workflow-action" class="es.trueta.documentacion_repo.actions.IniciarWorkflowAction"
+		parent="action-executer">
+		<property name="bonitaService" ref="bonitaServiceImpl" />
+	</bean>
+	
+	<bean id="generatePdfFromTemplateAction" class="es.trueta.documentacion_repo.actions.GeneratePdfFromTemplateAction"
+		parent="action-executer">
+		<property name="officeTemplatesService" ref="officeTemplatesService" />
+		<property name="nodeService" ref="nodeService" />
+		<property name="searchService" ref="searchService" />
+	</bean>
+
+	<bean id="ejemplo-action" class="es.trueta.documentacion_repo.actions.EjemploAction"
+		parent="action-executer">
+	</bean>
+
+
+
+</beans>
