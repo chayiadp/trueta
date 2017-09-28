@@ -4,7 +4,7 @@
 <beans>
 
     <!-- Bean para el filtro de CMIS -->	
-    <bean id="externalHostAuthenticationFilter" class="es.in2.truetaAlfresco.filters.ExternalHostAuthenticationFilter">
+    <bean id="externalHostAuthenticationFilter" class="es.trueta.documentacion_repo.filters.ExternalHostAuthenticationFilter">
         <property name="globalProperties" ref="global-properties" />
     </bean>
           

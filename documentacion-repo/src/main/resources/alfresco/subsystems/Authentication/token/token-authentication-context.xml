@@ -6,7 +6,7 @@
 
 
 	<bean id="authenticationComponent"
-		class="es.in2.truetaAlfresco.authentication.TokenDBAuthenticationComponentImpl"
+		class="es.trueta.documentacion_repo.authentication.TokenDBAuthenticationComponentImpl"
 		parent="authenticationComponentBase">
 
 		<property name="table">
