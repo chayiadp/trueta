@@ -1,0 +1,7 @@
+<webscript>
+  <shortname>Token</shortname>
+  <description>Returns a valid token for the session.</description>
+  <url>/token</url>
+  <authentication>user</authentication>
+  <format default="json">any</format>
+</webscript>

@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+
+
+<beans>
+
+
+	<bean id="authenticationComponent"
+		class="es.in2.truetaAlfresco.authentication.TokenDBAuthenticationComponentImpl"
+		parent="authenticationComponentBase">
+
+		<property name="table">
+			<value>${tokenauthenticator.table}</value>
+		</property>
+		<property name="columnUser">
+			<value>${tokenauthenticator.column.user}</value>
+		</property>
+		<property name="columnToken">
+			<value>${tokenauthenticator.column.token}</value>
+		</property>
+
+		<property name="nodeService" ref="nodeService" />
+		<property name="personService" ref="personService" />
+		<property name="transactionService" ref="transactionService" />
+		<property name="dataSource" ref="defaultDataSource" />
+
+
+	</bean>
+
+	<!-- Wrapped version to be used within subsystem -->
+	<bean id="AuthenticationComponent"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<list>
+				<value>org.alfresco.repo.security.authentication.AuthenticationComponent</value>
+			</list>
+		</property>
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="target">
+			<ref bean="authenticationComponent" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">${server.transaction.mode.default}</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- Override the localAuthenticationService Authentication service for 
+		chaining -->
+	<bean id="localAuthenticationService"
+		class="org.alfresco.repo.security.authentication.AuthenticationServiceImpl">
+		<property name="ticketComponent">
+			<ref bean="ticketComponent" />
+		</property>
+		<property name="authenticationComponent">
+			<ref bean="authenticationComponent" />
+		</property>
+		<property name="sysAdminParams">
+			<ref bean="sysAdminParams" />
+		</property>
+	</bean>
+
+</beans>

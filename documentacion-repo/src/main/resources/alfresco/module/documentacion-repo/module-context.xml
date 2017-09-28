@@ -32,4 +32,7 @@
 	<import resource="classpath:alfresco/module/${project.artifactId}/context/behaviour-context.xml" />
 	<import resource="classpath:alfresco/module/${project.artifactId}/context/bonita-context.xml" />
 	
+	
+	<import resource="classpath:alfresco/module/${project.artifactId}/context/filter-context.xml" />
+	
 </beans>

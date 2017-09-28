@@ -1,8 +1,12 @@
 package es.trueta.documentacion_repo.behaviours;
 
+import java.io.Serializable;
+import java.util.Map;
+
 import org.alfresco.model.ContentModel;
 import org.alfresco.repo.node.NodeServicePolicies;
 import org.alfresco.repo.node.NodeServicePolicies.OnCreateNodePolicy;
+import org.alfresco.repo.node.NodeServicePolicies.OnUpdatePropertiesPolicy;
 import org.alfresco.repo.policy.Behaviour;
 import org.alfresco.repo.policy.JavaBehaviour;
 import org.alfresco.repo.policy.PolicyComponent;
@@ -14,6 +18,7 @@ import org.alfresco.service.cmr.repository.NodeService;
 import org.alfresco.service.cmr.repository.StoreRef;
 import org.alfresco.service.cmr.search.ResultSet;
 import org.alfresco.service.cmr.search.SearchService;
+import org.alfresco.service.namespace.QName;
 import org.apache.log4j.Logger;
 
 import es.trueta.documentacion_repo.services.OfficeTemplatesService;
@@ -22,7 +27,7 @@ import es.trueta.documentacion_repo.services.OfficeTemplatesService;
  * Ejemplo. Cuando se sube un documento (cm:content) con el nombre test.docx se ejecuta la accion de generar pdf con plantilla
  * 
  */
-public class EjemploBehaviour implements OnCreateNodePolicy{
+public class EjemploBehaviour implements OnCreateNodePolicy {
 
 	private static final Logger logger = Logger.getLogger(EjemploBehaviour.class);
 
@@ -39,6 +44,9 @@ public class EjemploBehaviour implements OnCreateNodePolicy{
 				NodeServicePolicies.OnCreateNodePolicy.QNAME,
 				ContentModel.TYPE_CONTENT, 
 				new JavaBehaviour(this, "onCreateNode", Behaviour.NotificationFrequency.TRANSACTION_COMMIT));
+		
+		
+		
 	}
 	
 	@Override
@@ -59,6 +67,9 @@ public class EjemploBehaviour implements OnCreateNodePolicy{
 			}
 		}
 	}
+	
+
+	
 	
 	
 	private NodeRef searchPlantilla(String tipoDocumento) {
@@ -108,6 +119,7 @@ public class EjemploBehaviour implements OnCreateNodePolicy{
 	public void setSearchService(SearchService searchService) {
 		this.searchService = searchService;
 	}
+
 	
 
 }

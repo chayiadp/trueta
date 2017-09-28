@@ -17,6 +17,14 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	
 	
+	<bean id="webscript.es.in2.token.token.get" class="es.in2.truetaAlfresco.webscripts.GetToken"
+		parent="webscript">
+		<property name="authenticationService" ref="authenticationService" />
+	</bean>
+	
+	
+	
+	
 	<bean id="webscript.alfresco.ejemplo.ejemplo.get" class="es.trueta.documentacion_repo.webscripts.EjemploWebScript"
 		parent="webscript">
 	</bean>

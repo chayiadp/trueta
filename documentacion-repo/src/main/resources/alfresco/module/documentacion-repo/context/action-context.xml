@@ -19,6 +19,9 @@
 		parent="action-executer">
 	</bean>
 
-
+	<bean id="ejemplo-action2" class="es.trueta.documentacion_repo.actions.Ejemplo2"
+		parent="action-executer">
+			<property name="nodeService" ref="nodeService" />
+	</bean>
 
 </beans>
